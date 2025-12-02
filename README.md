@@ -8,6 +8,10 @@
 
 <img width="1767" height="264" alt="Advent of Code 2025" src="https://github.com/user-attachments/assets/d12e5664-6095-4f6f-92b6-2762d98d8ed0" />
 
+<div align="center">
+  <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="100%" height="100px">
+</div>
+
 ### ✨ _Crafting elegant solutions, one puzzle at a time_ ✨
 
 </div>
