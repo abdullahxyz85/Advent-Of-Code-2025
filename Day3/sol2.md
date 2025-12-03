@@ -7,12 +7,14 @@ The escalator needs even more power! Now we need to turn on exactly **12 batteri
 ## Understanding the Problem
 
 The rules are similar to Part 1, but scaled up:
+
 - Must turn on exactly **12 batteries** per bank
 - Cannot rearrange batteries (order must be preserved)
 - The joltage is the 12-digit number formed by selected batteries
 - We want to maximize the joltage from each bank
 
 ### Key Insight:
+
 This is equivalent to **selecting 12 digits from a sequence to form the largest possible number** while maintaining their relative order. This is known as the "largest subsequence of length k" problem.
 
 ## Approach: Greedy Algorithm with Stack
@@ -30,6 +32,7 @@ We use a stack-based greedy approach:
 5. **Join the stack** to form the final 12-digit number
 
 ### Why This Works:
+
 - We greedily keep larger digits towards the front
 - We only remove smaller digits when a larger one appears
 - This maximizes the numerical value while preserving order
@@ -38,13 +41,13 @@ We use a stack-based greedy approach:
 
 ### Bank: `987654321111111` (15 digits → drop 3)
 
-| Step | Current | Stack | To Drop | Action |
-|------|---------|-------|---------|--------|
-| 1 | 9 | [9] | 3 | Add 9 |
-| 2 | 8 | [9,8] | 3 | Add 8 (8 < 9) |
-| 3 | 7 | [9,8,7] | 3 | Add 7 (7 < 8) |
-| ... | ... | ... | ... | Continue... |
-| End | - | [9,8,7,6,5,4,3,2,1,1,1,1] | 0 | Drop last 3 ones |
+| Step | Current | Stack                     | To Drop | Action           |
+| ---- | ------- | ------------------------- | ------- | ---------------- |
+| 1    | 9       | [9]                       | 3       | Add 9            |
+| 2    | 8       | [9,8]                     | 3       | Add 8 (8 < 9)    |
+| 3    | 7       | [9,8,7]                   | 3       | Add 7 (7 < 8)    |
+| ...  | ...     | ...                       | ...     | Continue...      |
+| End  | -       | [9,8,7,6,5,4,3,2,1,1,1,1] | 0       | Drop last 3 ones |
 
 **Result**: `987654321111`
 
@@ -67,13 +70,13 @@ The algorithm identifies that keeping the larger 8s and 9s produces:
 
 ## Comparison with Part 1
 
-| Aspect | Part 1 | Part 2 |
-|--------|--------|--------|
-| Batteries to select | 2 | 12 |
-| Result length | 2 digits | 12 digits |
-| Algorithm | Brute force pairs | Greedy stack |
-| Complexity | O(m²) | O(m) |
-| Example total | 357 | 3,121,910,778,619 |
+| Aspect              | Part 1            | Part 2            |
+| ------------------- | ----------------- | ----------------- |
+| Batteries to select | 2                 | 12                |
+| Result length       | 2 digits          | 12 digits         |
+| Algorithm           | Brute force pairs | Greedy stack      |
+| Complexity          | O(m²)             | O(m)              |
+| Example total       | 357               | 3,121,910,778,619 |
 
 ## Answer
 
