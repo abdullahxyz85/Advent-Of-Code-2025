@@ -45,12 +45,17 @@ def count_paths(graph, start, end, visited=None):
     return total_paths
 
 def main():
-    # Parse the input
-    graph = parse_input('input.txt')
-    
-    # Count paths from "you" to "out"
+    # Test with example
+    print("Testing with example:")
+    graph = parse_input('test_input.txt')
     num_paths = count_paths(graph, "you", "out")
+    print(f"Example: {num_paths} paths (expected: 5)")
+    print()
     
+    # Solve actual puzzle
+    print("Solving actual puzzle:")
+    graph = parse_input('input.txt')
+    num_paths = count_paths(graph, "you", "out")
     print(f"Number of different paths from 'you' to 'out': {num_paths}")
 
 if __name__ == "__main__":
